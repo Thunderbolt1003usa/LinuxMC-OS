@@ -22,8 +22,6 @@ Erweiterbarkeit	Befehlstabelle als Array, neue Befehle leicht hinzufügbar
 
     Überschrift === LINUXMC OS ===
 
-    Zeile CONNECT 115200
-
     USERNAME: (mit Echo, Großbuchstaben)
 
     PASSWORD: (ohne Echo, Großbuchstaben intern)
