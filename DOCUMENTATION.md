@@ -26,7 +26,7 @@ Erweiterbarkeit	Befehlstabelle als Array, neue Befehle leicht hinzufügbar
 
     PASSWORD: (ohne Echo, Großbuchstaben intern)
 
-    Drei Fehlversuche → NO CARRIER + 2 Sekunden Pause
+    Drei Fehlversuche → TO MANY LOGINS WAIT 10 SECONDS + 10 Sekunden Pause
 
 2.2 Benutzerverwaltung
 
