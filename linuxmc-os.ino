@@ -287,6 +287,8 @@ void cmdClear(char*);
 void cmdReset(char*);
 void cmdLed(char*);
 void cmdExit(char*);
+void cmdTux(char*);
+void cmdInfo(char*);
 
 Command commands[] = {
   {"HELP",    cmdHelp,    false},
@@ -302,6 +304,8 @@ Command commands[] = {
   {"RESET",   cmdReset,   true},
   {"LED",     cmdLed,     false},
   {"EXIT",    cmdExit,    false},
+  {"TUX",     cmdTux,     false},
+  {"INFO",    cmdInfo,    false},
   {NULL, NULL, false}
 };
 
@@ -314,9 +318,6 @@ void cmdHelp(char*) {
       Serial.println(commands[i].name);
     }
   }
-  Serial.println("LINUXMC OS IS LICENSED UNDER THE GNU GPL 3");
-  Serial.println("LINUXMC OS IS MADE BY THE LINUXMC IPV& INF");
-  Serial.println("THE CODE IS AVAILABLE AT: GITHUB.COM/THUNDERBOLT1003USA/LINUXMC-OS");
 }
 
 void cmdLs(char*) {
@@ -520,6 +521,79 @@ void cmdExit(char*) {
   clearScreen();
 }
 
+void cmdTux(char*) {
+  Serial.println(F(R"(
+                 .88888888:.
+                88888888.88888.
+              .8888888888888888.
+              888888888888888888
+              88' _`88'_  `88888
+              88 88 88 88  88888
+              88_88_::_88_:88888
+              88:::,::,:::::8888
+              88`:::::::::'`8888
+             .88  `::::'    8:88.
+            8888            `8:888.
+          .8888'             `888888.
+         .8888:..  .::.  ...:'8888888:.
+        .8888.'     :'     `'::`88:88888
+       .8888        '         `.888:8888.
+      888:8         .           888:88888
+    .888:88        .:           888:88888:
+    8888888.       ::           88:888888
+    `.::.888.      ::          .88888888
+   .::::::.888.    ::         :::`8888'.:.
+  ::::::::::.888   '         .::::::::::::
+  ::::::::::::.8    '      .:8::::::::::::.
+ .::::::::::::::.        .:888:::::::::::::
+ :::::::::::::::88:.__..:88888:::::::::::'
+  `'.:::::::::::88888888888.88:::::::::'
+miK     `':::_:' -- '' -'-' `':_::::'`
+    )"));
+}
+
+void cmdInfo(char*) {
+  Serial.println(F(R"(
+                                                                
+       ...           ..:+XX$Xx;...                              
+       ...         .;&&&&&&&&&$&&;..                            
+       ...         +&&&&&&&&&&X$&&$.                            
+      ....      ...&&&&&&&&&&&&&&&&$.                           
+     .....        ;&&&&&&&&&&&$$&&&&+                           
+     ....         +&x;;X&&&;:::x&&&&X            ...            
+   .....       ...;&;&+.x&+.X$x.$&&&$.           ...   ...      
+  ......       ...;&;&...:...:x.$&&&X ...        ...   ...   ...
+ ......        ...:&$+.........+&&&&&....        ...   .... ....
+ ...........   ....&+:.....::..:&&&&&+...       ....    ........
+    ........... ...&x+....:;;...$&$X$&....     ....     ....... 
+          ..... ..:&+;....;;;...:&&&&&X..... ......   .......   
+                .:&&:....::.. ...:&&&&&:..........  ..........  
+               .x&$.  ....    ... +&&&&&&;......    ..... ....  
+             ..$&&:          ......$&&&&&&X.        ....   ...  
+             :&&&x;.......  ....;;;:&&&&&&&$.                   
+            .&&&X.. ....   .......:;;&&&&&&&$....         ...   
+           .X&&X.  .....  ......   ..+&$&&&x:....         ....  
+          .+&&$.  ...... ......      .$&X:...::.          ....  
+     ...  :&&&;  ....... ......      .xX...+&&&:           ...  
+     ... :&&$$. ...............       ;:..$&&&&x           ...  
+     ....&&&$X.....  ...... ...       ...;&&&&&X.          ...  
+      ...:+xx;....   .....  ...     .....&&&&&&+.          ...  
+       .:......:.    ....   ...   ..::...&&&&$x..          ...  
+  .....;::::::;&&;..        ..... .::::..x&&$:::......          
+  ::::::::::::::$&&x.       ......:+;:;...::::::......          
+  ;:::::::::::::;X&&&.       .... .+;::::.............          
+  ::::::::::::::::X$x.           .xX+:::::::::::::::.     ....  
+  :::::::::::::::::;:.       ..:x&&X;:::::::::::::::.     ..... 
+ .::::::::::::::::::+x;;:;;+x$&&&&&x;:::::::::::::.       ..... 
+ .:;;;;;:::::::::::;+$&&&&&&&&&&&&$+;:::::::;;;.                
+  ....::;+++;;;;;;;+x$x+;;;:::::;+xx+;;;;;++...                 
+     ........:;+xx+:..            .:+xxx+;..                    
+              .....                .......                      
+
+       )"));
+       Serial.println(F("LINUXMC OS IS MADE BY THE LINUXMC HOMESERVER PROJECT. I HOPE YOU ENJOY IT! LINUXMC OS IS LICENSED UNDER THE GNU GPL 3."));
+}
+
 // ======================== Befehl ausführen ========================
 void processCommand(char* input) {
   for (char* p = input; *p; p++) *p = toupper(*p);
@@ -556,7 +630,6 @@ void processCommand(char* input) {
 void showLoginScreen() {
   clearScreen();
   Serial.println(F("=== LINUXMC OS ==="));
-  Serial.println(F("CONNECT 9600"));
   int attempts = 0;
   while (attempts < 3) {
     Serial.print(F("USERNAME:"));
@@ -593,13 +666,13 @@ void showLoginScreen() {
       attempts++;
     }
   }
-  Serial.println(F("NO CARRIER"));
-  delay(2000);
+  Serial.println(F("TO MANY WRONG LOGINS WAIT 10 SECONDS"));
+  delay(10000);
 }
 
 // ======================== Setup ========================
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, LOW);
   pinMode(2, INPUT_PULLUP);
