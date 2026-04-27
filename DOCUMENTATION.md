@@ -135,5 +135,5 @@ Benötigte Bibliotheken:
 text
 
 LinuxMC OS ist lizenziert unter der GNU General Public License v3.0.
-Copyright (c) 2025 LinuxMC IPV& INF
+Copyright (c) 2026 LinuxMC IPV& INF
 Quellcode: github.com/Thunderbolt1003USA/LinuxMC-OS
