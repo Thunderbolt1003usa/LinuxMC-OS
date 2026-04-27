@@ -1,13 +1,13 @@
 📘 LinuxMC OS – Handbuch & Entwicklerdokumentation
 
-Für Arduino Nano (ATmega328P) – Stand 27.04.2025
+Für Arduino Nano (ATmega328P) – Stand 27.04.2026
 1. Systemüberblick
 
-LinuxMC OS ist ein minimalistisches, mehrbenutzerfähiges Betriebssystem für den Arduino Nano. Es läuft über die serielle USB-Schnittstelle (115200 Baud) und imitiert den Charme eines Dial‑Up‑Modems. Nach dem Login erscheint eine Shell, die ein flaches Dateisystem im EEPROM, LED‑Steuerung, Benutzerverwaltung und eine konfigurierbare Message‑of‑the‑Day (MOTD) bietet.
+LinuxMC OS ist ein minimalistisches, mehrbenutzerfähiges Betriebssystem für den Arduino Nano. Es läuft über die serielle USB-Schnittstelle (115200 Baud). Nach dem Login erscheint eine Shell, die ein flaches Dateisystem im EEPROM, LED‑Steuerung, Benutzerverwaltung und eine konfigurierbare Message‑of‑the‑Day (MOTD) bietet.
 
 Kernmerkmale:
 Feature	Beschreibung
-Anmeldung	=== LINUXMC OS === mit CONNECT 115200, Benutzername + Passwort (Eingabe unsichtbar)
+Anmeldung	=== LINUXMC OS ===, Benutzername + Passwort (Eingabe unsichtbar)
 Mehrbenutzer	Max. 5 Nutzer; ADMIN ist Root, nicht löschbar
 Dateisystem	Flach, je Benutzer eigene Dateien; Zugriff über Indexnummern
 EEPROM-Speicher	1 kB; Verwaltung dynamisch, keine künstlichen Limits
